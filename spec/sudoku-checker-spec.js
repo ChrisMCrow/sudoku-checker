@@ -18,14 +18,15 @@ describe('SudokuChecker', function() {
   });
 
   it('should check if each row contains numbers 1-9', function() {
-    expect(legalBoard.check()).toEqual(true);
-  });
-
-  it('should check if a single columns contains all numbers 1-9', function(){
-    expect(legalBoard.checkColumn1()).toEqual(true);
+    expect(legalBoard.checkAllRows()).toEqual(true);
   });
 
   it('should check if each column contains all numbers 1-9', function(){
     expect(legalBoard.checkAllColumns()).toEqual(true);
   });
+
+  //This test currently fails
+  // it('should check if each 3x3 box contains all numbers 1-9', function() {
+  //   expect(legalBoard.checkAllBoxes()).toEqual(true);
+  // });
 });
