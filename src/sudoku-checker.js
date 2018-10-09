@@ -24,12 +24,12 @@ export function GameBoard(row1, row2, row3, row4, row5, row6, row7, row8, row9) 
 
 Row.prototype.check = function() {
   var rowValues = Object.values(this);
-  let count = 0
+  let count = 0;
   for (let i = 1; i <= 9; i++) {
     rowValues.includes(i) ? count++ : count;
   }
   return (count == 9) ? true : false;
-}
+};
 
 GameBoard.prototype.check = function() {
   let count = 0;
@@ -37,4 +37,32 @@ GameBoard.prototype.check = function() {
     this["Row" + i].check() ? count++ : count;
   }
   return (count == 9) ? true : false;
-}
+};
+
+
+
+GameBoard.prototype.checkColumn1 = function() {
+  let count = 0;
+  let columnValues = [];
+  for (let i = 1; i <= 9; i++){
+   columnValues.push(this["Row" + i]["Column1"]); 
+  }
+  for (let i = 1; i <= 9; i++){
+    columnValues.includes(i) ? count ++ : count;
+  }
+  return (count == 9) ? true : false;
+};
+
+GameBoard.prototype.checkAllColumns = function() {
+  let count = 0;
+  for (let columnNumber = 1; columnNumber <= 9; columnNumber++) {
+    let columnNumberValues = [];
+    for (let rowNumber = 1; rowNumber <= 9; rowNumber++) {
+      columnNumberValues.push(this["Row" + rowNumber]["Column" + columnNumber])
+    }
+    for (let number = 1; number <= 9; number++) {
+      columnNumberValues.includes(number) ? count++ : count;
+    }
+  }
+  return (count == 81) ? true : false;
+};

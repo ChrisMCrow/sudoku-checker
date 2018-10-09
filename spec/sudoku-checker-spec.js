@@ -12,8 +12,20 @@ const row9 = new Row(3, 4, 5, 2, 8, 6, 1, 7, 9);
 const legalBoard = new GameBoard(row1, row2, row3, row4, row5, row6, row7, row8, row9);
 
 describe('SudokuChecker', function() {
+  
+  it('should check if a single row contains all numbers 1-9', function() {
+    expect(row1.check()).toEqual(true);
+  });
 
-  it('should contain all numbers 1-9 in each row', function() {
+  it('should check if each row contains numbers 1-9', function() {
     expect(legalBoard.check()).toEqual(true);
+  });
+
+  it('should check if a single columns contains all numbers 1-9', function(){
+    expect(legalBoard.checkColumn1()).toEqual(true);
+  });
+
+  it('should check if each column contains all numbers 1-9', function(){
+    expect(legalBoard.checkAllColumns()).toEqual(true);
   });
 });
