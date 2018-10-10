@@ -25,7 +25,11 @@ describe('SudokuChecker', function() {
     expect(legalBoard.checkAllColumns()).toEqual(true);
   });
 
-  // it('should check if each 3x3 box contains all numbers 1-9', function() {
-  //   expect(legalBoard.checkAllBoxes()).toEqual(true);
-  // });
+  it('should check if each 3x3 box contains all numbers 1-9', function() {
+    expect(legalBoard.checkAllGrids()).toEqual(true);
+  });
+
+  it('should check all criteria above', function() {
+    expect(legalBoard.check()).toEqual(true);
+  });
 });
